@@ -11,20 +11,27 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <TextView
             android:text="@{person.name}"
+            android:layout_margin="16dp"
+            android:textSize="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:text="@{person.phoneNumber}"
+            android:layout_margin="16dp"
+            android:textSize="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:text="@{person.email}"
+            android:layout_margin="16dp"
+            android:textSize="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

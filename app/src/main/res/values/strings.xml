@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ButterKnifeAndDataBinding</string>
+    <string name="button_name">OK</string>
+
+    <string name="hint_name">Введите имя</string>
+    <string name="hint_phone">Введите телефон</string>
+    <string name="hint_email">Введите почту</string>
 </resources>
