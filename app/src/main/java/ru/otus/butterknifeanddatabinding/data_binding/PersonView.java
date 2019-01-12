@@ -2,6 +2,7 @@ package ru.otus.butterknifeanddatabinding.data_binding;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 
 import ru.otus.butterknifeanddatabinding.R;
 import ru.otus.butterknifeanddatabinding.databinding.PersonViewExBinding;
+import ru.otus.butterknifeanddatabinding.utils.BundleUtil;
 
 public class PersonView extends LinearLayout {
 
@@ -20,8 +22,12 @@ public class PersonView extends LinearLayout {
         binding = DataBindingUtil.inflate(
                 LayoutInflater.from(context), R.layout.person_view_ex, this, true);
         PersonActivity activity = (PersonActivity) context;
-        Person person = activity.getIntent().getParcelableExtra("Person");
-        bind(person);
+
+        Bundle extras = activity.getIntent().getExtras();
+        if (extras != null) {
+            Person person = (Person) BundleUtil.getParcelable(extras);
+            bind(person);
+        }
     }
 
     public void bind(ru.otus.butterknifeanddatabinding.data_binding.Person person){

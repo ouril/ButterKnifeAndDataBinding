@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.otus.butterknifeanddatabinding.data_binding.Person;
 import ru.otus.butterknifeanddatabinding.data_binding.PersonActivity;
+import ru.otus.butterknifeanddatabinding.utils.BundleUtil;
 
 public class MainView extends ConstraintLayout {
 
@@ -118,12 +119,12 @@ public class MainView extends ConstraintLayout {
         if (edit_mail.getText().length() > 0 && edit_name.getText().length() > 0 &&
                 edit_phone.getText().length() > 0) {
             Intent intent = new Intent(getContext(), PersonActivity.class);
-            intent.putExtra("Person",
-                    new Person(
+            intent.putExtras(
+                    BundleUtil.fromParcelable(new Person(
                             edit_name.getText().toString(),
                             edit_phone.getText().toString(),
                             edit_mail.getText().toString()
-                    ));
+                    )));
             getContext().startActivity(intent);
         }
     }
