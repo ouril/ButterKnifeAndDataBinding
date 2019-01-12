@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.otus.butterknifeanddatabinding.data_binding.Person;
 import ru.otus.butterknifeanddatabinding.data_binding.PersonActivity;
 
 public class MainView extends ConstraintLayout {
@@ -117,11 +118,13 @@ public class MainView extends ConstraintLayout {
         if (edit_mail.getText().length() > 0 && edit_name.getText().length() > 0 &&
                 edit_phone.getText().length() > 0) {
             Intent intent = new Intent(getContext(), PersonActivity.class);
-            intent.putExtra(NAME, edit_name.getText().toString());
-            intent.putExtra(PHONE, edit_phone.getText().toString());
-            intent.putExtra(EMAIL, edit_mail.getText().toString());
+            intent.putExtra("Person",
+                    new Person(
+                            edit_name.getText().toString(),
+                            edit_phone.getText().toString(),
+                            edit_mail.getText().toString()
+                    ));
             getContext().startActivity(intent);
-
         }
     }
 
@@ -158,9 +161,6 @@ public class MainView extends ConstraintLayout {
     interface TextMatcherCallback {
         boolean match(CharSequence s);
     }
-
-
-
 
     interface TextGotCallback {
         void textGot(CharSequence s, EditText editText, EditText nextEdit);
